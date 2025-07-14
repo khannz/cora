@@ -1,0 +1,18 @@
+plugins {
+    id 'groovy-gradle-plugin'
+}
+
+repositories {
+    mavenCentral()
+    gradlePluginPortal()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-gradle-plugin:3.5.4'
+    implementation 'io.spring.gradle:dependency-management-plugin:1.1.7'
+
+    // https://dev.to/vishal_bhavsar/gradle-aspectj-junit5-testing-3b12
+    implementation 'io.freefair.aspectj:io.freefair.aspectj.gradle.plugin:8.14'
+
+    implementation 'io.freefair.lombok:io.freefair.lombok.gradle.plugin:8.14'
+}

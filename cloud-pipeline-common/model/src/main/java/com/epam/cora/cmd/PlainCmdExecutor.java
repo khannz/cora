@@ -1,0 +1,76 @@
+package com.epam.cora.cmd;
+
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.SystemUtils;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
+
+@Slf4j
+public class PlainCmdExecutor implements CmdExecutor {
+
+    private static final String DEFAULT_SHELL = "bash";
+    private static final String WIN_CMD = "cmd.exe";
+
+    @Override
+    public String executeCommand(final String command, final Map<String, String> environmentVariables, final File workDir, final String username) {
+        StringBuilder output = new StringBuilder();
+        StringBuilder errors = new StringBuilder();
+        try {
+            Process p = launchCommand(command, environmentVariables, workDir, username);
+            Thread stdReader = new Thread(() -> readOutputStream(command, output, new InputStreamReader(p.getInputStream())));
+            Thread errReader = new Thread(() -> readOutputStream(command, errors, new InputStreamReader(p.getErrorStream())));
+            stdReader.start();
+            errReader.start();
+            int exitCode = p.waitFor();
+            stdReader.join();
+            errReader.join();
+            if (exitCode != 0) {
+                final String errorMessage = String.format("Command '%s' failed with the following stderr: %s", command, errors.toString());
+                log.error(errorMessage);
+                throw new CmdExecutionException(errorMessage);
+            }
+        } catch (InterruptedException e) {
+            throw new CmdExecutionException(String.format("Command '%s' execution was interrupted", command));
+        }
+        return output.toString();
+    }
+
+    @Override
+    public Process launchCommand(final String command, final Map<String, String> environmentVariables, final File workDir, final String username) {
+        try {
+            final String[] cmd = buildCommand(command);
+            final Map<String, String> mergedEnvVars = new HashMap<>(System.getenv());
+            if (!environmentVariables.isEmpty()) {
+                mergedEnvVars.putAll(environmentVariables);
+            }
+            final String[] envp = mergedEnvVars.entrySet().stream().map(entry -> String.format("%s=%s", entry.getKey(), entry.getValue())).toArray(String[]::new);
+            return Runtime.getRuntime().exec(cmd, envp, workDir);
+        } catch (IOException e) {
+            throw new CmdExecutionException(String.format("Command '%s' launching has failed", command), e);
+        }
+    }
+
+    private String[] buildCommand(final String command) {
+        return SystemUtils.IS_OS_WINDOWS ? new String[]{WIN_CMD, "/c", command.replace("'", "\"")} : new String[]{DEFAULT_SHELL, "-c", command};
+    }
+
+    private void readOutputStream(String command, StringBuilder content, InputStreamReader in) {
+        try (BufferedReader reader = new BufferedReader(in)) {
+            appendReaderContent(content, reader);
+        } catch (IOException e) {
+            throw new CmdExecutionException(String.format("Command '%s' outputs reading has failed", command), e);
+        }
+    }
+
+    private void appendReaderContent(StringBuilder output, BufferedReader reader) throws IOException {
+        String line;
+        while ((line = reader.readLine()) != null) {
+            output.append(line).append('\n');
+        }
+    }
+}

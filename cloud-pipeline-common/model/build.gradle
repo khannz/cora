@@ -1,0 +1,20 @@
+plugins {
+    id("java-common-conventions")
+}
+
+dependencies {
+
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    implementation 'org.springframework.security:spring-security-acl'
+
+    implementation 'commons-io:commons-io:2.20.0'
+
+    // okhttp
+    implementation("com.squareup.okhttp3:okhttp:5.1.0")
+
+    // TODO: migrate to latest
+    // implementation 'io.fabric8:kubernetes-model:9.0.2'
+    implementation 'io.fabric8:kubernetes-model:1.0.67'
+}

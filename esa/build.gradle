@@ -1,0 +1,68 @@
+plugins {
+    id("java-common-conventions")
+}
+
+bootJar {
+    archiveFileName = "esa.jar"
+
+    manifest {
+        attributes("Implementation-Version": "0.17.0-SNAPSHOT")
+    }
+}
+
+tasks.named('bootRun') {
+    // This activates dev profile while bootRun if there was no other specified.
+    systemProperty 'spring.profiles.active', System.getProperty('spring.profiles.active', System.getenv('SPRING_PROFILES_ACTIVE') ?: 'dev')
+}
+
+dependencies {
+
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    implementation 'org.springframework.security:spring-security-acl'
+
+    implementation 'commons-io:commons-io:2.20.0'
+
+    // Core library
+    implementation project(":cloud-pipeline-common:model")
+
+    // C3P0
+    implementation 'com.mchange:c3p0:0.11.2'
+
+    // PGSQL
+    implementation 'org.postgresql:postgresql:42.7.7'
+
+    // Elasticsearch
+    // implementation 'org.elasticsearch:elasticsearch:9.0.4'
+    // FIXME: 6.8.23 CVE-2023-31418
+    // FIXME: 6.8.23 WS-2021-0646
+    implementation 'org.elasticsearch:elasticsearch:6.8.23'
+    implementation 'org.elasticsearch.client:elasticsearch-rest-client:6.8.23'
+    implementation 'org.elasticsearch.client:elasticsearch-rest-high-level-client:6.8.23'
+
+    // ShedLock
+    implementation 'net.javacrumbs.shedlock:shedlock-spring:3.0.0'
+    implementation 'net.javacrumbs.shedlock:shedlock-provider-jdbc-template:3.0.0'
+//    implementation 'net.javacrumbs.shedlock:shedlock-spring:6.9.2'
+//    implementation 'net.javacrumbs.shedlock:shedlock-provider-jdbc-template:6.9.2'
+
+//    implementation 'org.apache.commons:commons-collections4:4.5.0'
+//    implementation 'io.fabric8:kubernetes-model:9.0.2'
+
+    // FIXME: update to latest 1.12.788
+    // FIXME: update to latest 2.x
+    // implementation 'com.amazonaws:aws-java-sdk-s3:1.11.704'
+    // implementation 'com.amazonaws:aws-java-sdk-sts:1.11.704'
+    implementation 'com.amazonaws:aws-java-sdk-s3:1.12.788'
+    implementation 'com.amazonaws:aws-java-sdk-sts:1.12.788'
+
+    // Azure Storage
+    implementation 'com.microsoft.azure:azure-storage-blob:10.4.0'
+    // implementation 'com.azure:azure-storage-blob:12.31.1'
+
+    // Google Cloud Storage
+    // implementation 'com.google.cloud:google-cloud-storage:1.64.0'
+    implementation 'com.google.cloud:google-cloud-storage:2.55.0'
+}
