@@ -8,8 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.ListUtils;
-import org.elasticsearch.action.DocWriteRequest;
-import org.elasticsearch.action.bulk.BulkResponse;
+import org.opensearch.action.DocWriteRequest;
+import org.opensearch.action.bulk.BulkResponse;
 import org.springframework.util.ObjectUtils;
 
 import java.time.LocalDateTime;

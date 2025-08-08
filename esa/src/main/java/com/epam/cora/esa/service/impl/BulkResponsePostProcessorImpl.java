@@ -6,7 +6,7 @@ import com.epam.cora.esa.service.BulkResponsePostProcessor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
-import org.elasticsearch.action.bulk.BulkItemResponse;
+import org.opensearch.action.bulk.BulkItemResponse;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;

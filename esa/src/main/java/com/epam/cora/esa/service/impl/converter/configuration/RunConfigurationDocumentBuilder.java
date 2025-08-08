@@ -9,8 +9,8 @@ import com.epam.cora.esa.model.RunConfigurationDoc;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.elasticsearch.action.DocWriteRequest;
-import org.elasticsearch.action.index.IndexRequest;
+import org.opensearch.action.DocWriteRequest;
+import org.opensearch.action.index.IndexRequest;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;

@@ -7,8 +7,8 @@ import com.epam.cora.esa.model.DataStorageDoc;
 import com.epam.cora.esa.model.EntityContainer;
 import com.epam.cora.esa.service.EntityMapper;
 import lombok.RequiredArgsConstructor;
-import org.elasticsearch.common.xcontent.XContentBuilder;
-import org.elasticsearch.common.xcontent.XContentFactory;
+import org.opensearch.core.xcontent.XContentBuilder;
+import org.opensearch.core.xcontent.XContentFactory;
 
 import java.io.IOException;
 

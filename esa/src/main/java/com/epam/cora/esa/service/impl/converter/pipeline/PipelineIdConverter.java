@@ -3,7 +3,7 @@ package com.epam.cora.esa.service.impl.converter.pipeline;
 import com.epam.cora.esa.service.ResponseIdConverter;
 import com.epam.cora.esa.utils.Utils;
 import lombok.RequiredArgsConstructor;
-import org.elasticsearch.action.bulk.BulkItemResponse;
+import org.opensearch.action.bulk.BulkItemResponse;
 
 import java.util.Arrays;
 

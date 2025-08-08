@@ -1,7 +1,7 @@
 package com.epam.cora.esa.service;
 
 import org.apache.commons.lang3.math.NumberUtils;
-import org.elasticsearch.action.bulk.BulkItemResponse;
+import org.opensearch.action.bulk.BulkItemResponse;
 
 public interface ResponseIdConverter {
 

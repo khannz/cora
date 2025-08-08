@@ -8,7 +8,7 @@ import com.epam.cora.esa.utils.EventProcessorUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
-import org.elasticsearch.action.DocWriteRequest;
+import org.opensearch.action.DocWriteRequest;
 
 import java.time.LocalDateTime;
 import java.util.List;
