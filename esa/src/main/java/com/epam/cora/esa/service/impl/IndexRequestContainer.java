@@ -3,9 +3,9 @@ package com.epam.cora.esa.service.impl;
 import com.epam.cora.esa.service.BulkRequestCreator;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
-import org.elasticsearch.action.DocWriteRequest;
-import org.elasticsearch.action.bulk.BulkItemResponse;
-import org.elasticsearch.action.bulk.BulkResponse;
+import org.opensearch.action.DocWriteRequest;
+import org.opensearch.action.bulk.BulkItemResponse;
+import org.opensearch.action.bulk.BulkResponse;
 
 import java.util.ArrayList;
 import java.util.Arrays;

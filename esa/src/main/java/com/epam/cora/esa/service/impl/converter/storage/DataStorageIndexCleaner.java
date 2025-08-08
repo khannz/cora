@@ -6,7 +6,7 @@ import com.epam.cora.esa.service.ElasticsearchServiceClient;
 import com.epam.cora.esa.service.EventProcessor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.elasticsearch.ElasticsearchException;
+import org.opensearch.ElasticsearchException;
 import org.springframework.util.StringUtils;
 
 @RequiredArgsConstructor

@@ -1,12 +1,12 @@
 package com.epam.cora.esa.service;
 
-import org.elasticsearch.action.DocWriteRequest;
-import org.elasticsearch.action.bulk.BulkResponse;
-import org.elasticsearch.action.search.MultiSearchRequest;
-import org.elasticsearch.action.search.MultiSearchResponse;
-import org.elasticsearch.action.search.SearchRequest;
-import org.elasticsearch.action.search.SearchResponse;
-import org.elasticsearch.search.Scroll;
+import org.opensearch.action.DocWriteRequest;
+import org.opensearch.action.bulk.BulkResponse;
+import org.opensearch.action.search.MultiSearchRequest;
+import org.opensearch.action.search.MultiSearchResponse;
+import org.opensearch.action.search.SearchRequest;
+import org.opensearch.action.search.SearchResponse;
+import org.opensearch.core.search.Scroll;
 
 import java.util.List;
 

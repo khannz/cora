@@ -1,7 +1,7 @@
 package com.epam.cora.esa.service;
 
-import org.elasticsearch.action.DocWriteRequest;
-import org.elasticsearch.action.bulk.BulkResponse;
+import org.opensearch.action.DocWriteRequest;
+import org.opensearch.action.bulk.BulkResponse;
 
 import java.util.List;
 
