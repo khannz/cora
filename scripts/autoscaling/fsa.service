@@ -1,0 +1,7 @@
+[Unit]
+Description=CORA filesystem autoscaler
+[Service]
+Type=oneshot
+EnvironmentFile=-/etc/sysconfig/fsa
+ExecStart=/sbin/fsa
+TimeoutStartSec=600s
