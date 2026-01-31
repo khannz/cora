@@ -10,8 +10,8 @@ import com.epam.cora.esa.service.EntityMapper;
 import com.epam.cora.esa.service.EventProcessor;
 import lombok.Data;
 import org.apache.commons.collections4.ListUtils;
-import org.elasticsearch.action.DocWriteRequest;
-import org.elasticsearch.action.index.IndexRequest;
+import org.opensearch.action.DocWriteRequest;
+import org.opensearch.action.index.IndexRequest;
 
 import java.util.Collections;
 import java.util.List;

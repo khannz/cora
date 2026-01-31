@@ -2,9 +2,9 @@ package com.epam.cora.esa.service;
 
 import com.epam.cora.esa.model.PipelineEvent;
 import com.epam.cora.entity.user.PipelineUser;
-import org.elasticsearch.action.DocWriteRequest;
-import org.elasticsearch.action.delete.DeleteRequest;
-import org.elasticsearch.common.xcontent.XContentBuilder;
+import org.opensearch.action.DocWriteRequest;
+import org.opensearch.action.delete.DeleteRequest;
+import org.opensearch.core.xcontent.XContentBuilder;
 import org.springframework.util.CollectionUtils;
 
 import java.io.IOException;

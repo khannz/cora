@@ -10,8 +10,8 @@ import com.epam.cora.entity.scan.ToolVersionScanResult;
 import com.epam.cora.entity.search.SearchDocumentType;
 import com.epam.cora.entity.pipeline.Tool;
 import org.apache.commons.collections4.CollectionUtils;
-import org.elasticsearch.common.xcontent.XContentBuilder;
-import org.elasticsearch.common.xcontent.XContentFactory;
+import org.opensearch.core.xcontent.XContentBuilder;
+import org.opensearch.core.xcontent.XContentFactory;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;

@@ -4,8 +4,8 @@ import com.epam.cora.entity.pipeline.Pipeline;
 import com.epam.cora.entity.search.SearchDocumentType;
 import com.epam.cora.esa.model.PermissionsContainer;
 import com.epam.cora.utils.FileContentUtils;
-import org.elasticsearch.common.xcontent.XContentBuilder;
-import org.elasticsearch.common.xcontent.XContentFactory;
+import org.opensearch.core.xcontent.XContentBuilder;
+import org.opensearch.core.xcontent.XContentFactory;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;

@@ -4,7 +4,7 @@ import com.epam.cora.entity.user.PipelineUser;
 import com.epam.cora.esa.model.EntityContainer;
 import com.epam.cora.esa.model.PermissionsContainer;
 import org.apache.commons.collections4.MapUtils;
-import org.elasticsearch.common.xcontent.XContentBuilder;
+import org.opensearch.core.xcontent.XContentBuilder;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
